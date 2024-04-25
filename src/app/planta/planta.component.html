@@ -10,14 +10,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let planta of plantas">
-          <th scope="row">{{planta.id}}</th>
-          <td>{{planta.nombre_comun}}</td>
-          <td>{{planta.tipo}}</td>
-          <td>{{planta.clima}}</td>
+        <tr class="col" *ngFor="let planta of plantas">
+          <th class="id" scope="row">{{planta.id}}</th>
+          <td class="name">{{planta.nombre_comun}}</td>
+          <td class="type">{{planta.tipo}}</td>
+          <td class="weather">{{planta.clima}}</td>
         </tr>
       </tbody>
     </table>
-    <div *ngFor="let tipos of tiposDePlanta | keyvalue"> Tipos plantas de {{tipos.key}}: {{tipos.value}}</div>
+    <div class="types" *ngFor="let tipos of tiposDePlanta | keyvalue"> Tipos plantas de {{tipos.key}}: {{tipos.value}}</div>
 </div>
 </div>
