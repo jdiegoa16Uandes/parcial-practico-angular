@@ -1,0 +1,23 @@
+<div class="container-fluid">
+  <div class="row" style="width: 40rem; height: 14rem; margin:auto">
+    <table class="table table-striped table-bordered border-dark">
+      <thead>
+        <tr class="table-dark">
+          <th scope="col">#</th>
+          <th scope="col">Nombre común</th>
+          <th scope="col">Tipo</th>
+          <th scope="col">Clima</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let planta of plantas">
+          <th scope="row">{{planta.id}}</th>
+          <td>{{planta.nombre_comun}}</td>
+          <td>{{planta.tipo}}</td>
+          <td>{{planta.clima}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngFor="let tipos of tiposDePlanta | keyvalue"> Tipos plantas de {{tipos.key}}: {{tipos.value}}</div>
+</div>
+</div>

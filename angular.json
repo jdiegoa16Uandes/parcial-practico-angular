@@ -3,9 +3,19 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "newApp": {
+    "mynewapp": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "standalone": false
+        },
+        "@schematics/angular:directive": {
+          "standalone": false
+        },
+        "@schematics/angular:pipe": {
+          "standalone": false
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -13,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/new-app",
+            "outputPath": "dist/mynewapp",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -28,12 +38,7 @@
               "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -54,7 +59,13 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -63,10 +74,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "newApp:build:production"
+              "buildTarget": "mynewapp:build:production"
             },
             "development": {
-              "buildTarget": "newApp:build:development"
+              "buildTarget": "mynewapp:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -74,7 +85,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "newApp:build"
+            "buildTarget": "mynewapp:build"
           }
         },
         "test": {
@@ -100,6 +111,6 @@
     }
   },
   "cli": {
-    "analytics": "7d31ae7d-d7d5-48e3-a70f-61b4f73d7f94"
+    "analytics": "0464fa00-2f4e-4ed1-8367-b9dd5cd4dc04"
   }
 }
